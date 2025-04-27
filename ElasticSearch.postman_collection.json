@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "ae2be34b-7a6e-4988-aaf7-6307664e0241",
+		"name": "ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38177245"
+	},
+	"item": [
+		{
+			"name": "Seed Request",
+			"item": [
+				{
+					"name": "Seed Amazon-Reviews",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/seed/amazon-reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seed",
+								"amazon-reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seed Mini-Amazon-Reviews",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/seed/mini-dataset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seed",
+								"mini-dataset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Elastic Search Query Api",
+			"item": [
+				{
+					"name": "HealthCheckElasticSeach",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Check For Amazon-Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/amazon_product_reviews/_search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"amazon_product_reviews",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Check For Mini-Amazon-Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/mini_dataset_amazon_product_reviews/_search?pretty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"mini_dataset_amazon_product_reviews",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "pretty",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Backend_Frontend Api",
+			"item": [
+				{
+					"name": "Quantitative Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/search/quantitative?rating=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"search",
+								"quantitative"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fuzzy Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/search/fuzzy?keyword=good",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"search",
+								"fuzzy"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "good"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hybrid Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/search/hybrid?rating=5&keyword=good",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"search",
+								"hybrid"
+							],
+							"query": [
+								{
+									"key": "rating",
+									"value": "5"
+								},
+								{
+									"key": "keyword",
+									"value": "good"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
