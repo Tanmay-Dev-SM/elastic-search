@@ -1,0 +1,15 @@
+# Node dependencies
+node_modules/
+build/
+coverage/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# System
+.DS_Store
+*.log
